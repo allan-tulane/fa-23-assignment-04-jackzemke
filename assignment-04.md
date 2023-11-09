@@ -74,25 +74,15 @@ possible?
 
 In class we proved an optimal substructure property for the **Edit
 Distance** problem. This allowed us to implement a simple recursive
-algorithm in Python that was horribly inefficient. We're going to
-implement a slightly different version of edit distance that includes
-substitutions, develop a top-down memoization scheme
-and then implement a way to visualize the optimal sequence of edits.
+algorithm in Python that was horribly inefficient.
 
 
 **3a)** The code for `MED` from the lecture notes is provided as a
-  starting point in `main.py.` We will consider a slightly different
-  version of the edit distance problem which allows for insertions,
-  deletions and substitutions. We will assume that insertions,
-  deletions and substitutions all have the same unit cost. State the optimal substructure property
-  for this version of the edit distance problem and modify `MED` accordingly. 
-
-
-**3b)** Now implement `fast_MED`, a **top-down**
+  starting point in `main.py.` Now implement `fast_MED`, a **top-down**
   memoized version of `MED`. Test your implementation code using `test_MED`.
 
 
-**3c)** Now that you have implemented an efficient algorithm for
+**3b)** Now that you have implemented an efficient algorithm for
   computing edit distance, let's turn to the problem of identifying
   the actual edits between two sequences.
 
@@ -103,12 +93,12 @@ and then implement a way to visualize the optimal sequence of edits.
   two strings which show the edits that yield this distance. An
   alignment just shows what changes are made to $S$ to transform it to
   $T$. For example, suppose $S$=`relevant` and $T$=`elephant`. If
-  insertion, deletion and substitution costs are all equal to $1$, then the
-  edit distance between $S$ and $T$ is 3 and an
+  insertion and deletion costs are both equal to $1$, then the
+  edit distance between $S$ and $T$ is 4 and an
   alignment of these two strings would look like this:
 
-  `relev-ant`\
-  `-elephant`
+  `relev--ant`\
+  `-ele-phant`
 
 Implement `fast_align_MED` to return the aligned versions of $S$ and $T$,
 and test your code with `test_alignment`.
