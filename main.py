@@ -42,36 +42,6 @@ def fast_MED(S, T, MED={}):
 
 # print(fast_MED(test_cases[1][0],test_cases[1][1]))
 
-# def fast_align_MED(S, T, MED={}):
-#     # print(MED)
-#     # num = fast_MED(S,T)
-    
-#     # print(S,T)
-
-#     if (S, T) in MED:
-#         return MED[(S, T)]
-#     if len(S) == 0:
-#         MED[(S, T)] = (len(T), ('-'*len(T), T))
-#     elif len(T) == 0:
-#         MED[(S, T)] = (len(S), (S, '-'*len(S)))
-#     elif S[0] == T[0]:
-#         print('no sub')
-#         MED[(S, T)] = (fast_align_MED(S[1:], T[1:], MED)[0], (S[0], T[0]))
-#     else:
-#         print(f'comparing {S} and {T}')
-#         choice1 = fast_align_MED(S, T[1:], MED)[0]
-#         choice2 = fast_align_MED(S[1:], T, MED)[0]
-#         choice = min(choice1, choice2)
-
-#         if choice1 == choice:
-#             MED[(S, T)] = (1 + choice1, (S, '-' + T[1]))
-#             # print(f'inserting {MED[(S, T)]}')
-#         elif choice2 == choice:
-#             MED[(S, T)] = (1 + choice2, ('-' + S[1], T))
-
-#     # print(MED)
-#     # print()
-#     return MED[(S, T)]
 
 def fast_align_MED(S, T, MED={}):
     if (S, T) in MED:
