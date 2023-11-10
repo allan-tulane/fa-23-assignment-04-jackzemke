@@ -34,9 +34,13 @@ def fast_MED(S, T, MED={}):
     elif S[0] == T[0]:
         MED[(S, T)] = fast_MED(S[1:], T[1:], MED)
     else:
+        '''COMMENTED OUT VERSION THAT ACCOUNTS FOR SWAPS'''
+        # MED[(S, T)] = 1 + min(fast_MED(S, T[1:], MED), 
+        #                     fast_MED(S[1:], T, MED), 
+        #                     fast_MED(S[1:], T[1:], MED))
+
         MED[(S, T)] = 1 + min(fast_MED(S, T[1:], MED), 
-                            fast_MED(S[1:], T, MED), 
-                            fast_MED(S[1:], T[1:], MED))
+                            fast_MED(S[1:], T, MED))
 
     return MED[(S, T)]
 
@@ -59,9 +63,11 @@ def fast_align_MED(S, T, MED={}):
         delete = fast_align_MED(S[1:], T, MED)
 
         if insert[0] <= delete[0]:
-            MED[(S, T)] = (1 + insert[0], ('-' + insert[1][0], T[0] + insert[1][1]))
+            MED[(S, T)] = (1 + insert[0], ('-' + insert[1][0], 
+                                           T[0] + insert[1][1]))
         else:
-            MED[(S, T)] = (1 + delete[0], (S[0] + delete[1][0], '-' + delete[1][1]))
+            MED[(S, T)] = (1 + delete[0], (S[0] + delete[1][0], 
+                                           '-' + delete[1][1]))
     
     return MED[(S, T)]
 
